@@ -1,25 +1,75 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <!-- <ion-toolbar>
     <ion-title>
       Inbox
     </ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+<ion-content class="padding" padding [fullscreen]="true">
+  <ion-list class="list-items">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="8">
+          <img src="../../assets/images/klasha-logo.png" alt="">
+        </ion-col>
+        <ion-col class="ion-align-items-end" size="4">
+          <ion-row class="ion-align-items-center">
+            <ion-col size="2">
+              <ion-icon color="black" name="cart-outline"></ion-icon>
+            </ion-col>
+            <ion-col size="5">
+              <p>Cart</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-badge style="border-radius: 50px;" color="primary">11</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div>
+      <h2 class="text-center">Nike Collections</h2>
+      <div class="product-container">
+        <img style="width: 100%;" src="../../assets/images/product.png" alt="product">
+        <div>
+          <p class="text-style">Nike Mercurial Superfly 7 Elite Mbappé Rosa FG</p>
+          <h2>₦ 12,000.00</h2>
+          <p class="text-style">Eligible for Shipping To Mars or somewhere else</p>
+        </div>
+      </div>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item no-lines button>
+            <ion-icon size="small" name="star"></ion-icon>
+            <ion-icon size="small" name="star"></ion-icon>
+            <ion-icon size="small" name="star"></ion-icon>
+            <ion-icon size="small" name="star"></ion-icon>
+            <ion-icon size="small" name="star-half-outline"></ion-icon>
+            <p class="rating">4.05</p>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item [routerLink]="'/message/'" button color="primary">
+            <ion-icon style="color: white; margin-right: 0.5rem;" size="small" name="cart"></ion-icon>
+            <ion-label>Add to Cart</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div>
+
+    </div>
+
   </ion-list>
+  <!-- <ion-list>
+    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+  </ion-list> -->
 </ion-content>
+<ion-footer class="footer">
+  <ion-toolbar>
+    <ion-title style="text-align: center; color: #000000CC;">Klasha.com</ion-title>
+  </ion-toolbar>
+</ion-footer>

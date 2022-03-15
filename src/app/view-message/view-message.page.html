@@ -5,25 +5,93 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true" *ngIf="message">
-  <ion-item>
-    <ion-icon name="person-circle" color="primary"></ion-icon>
-    <ion-label class="ion-text-wrap">
-      <h2>
-        {{ message.fromName }}
-        <span class="date">
-          <ion-note>{{ message.date }}</ion-note>
-        </span>
-      </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
-    </ion-label>
-  </ion-item>
-  
+<ion-content [fullscreen]="true">
+  <img style="width: 100%;" src="../../assets/images/banner.png" alt="">
   <div class="ion-padding">
-    <h1>{{ message.subject }}</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p class="address-text">Delivery Address</p>
+        </ion-col>
+        <ion-col>
+          <p class="change-text">Change</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div>
+      <p style="color: #615D5D;">Plot 6 & 7 Elemo Layout, Off Oda Road, Akure-Oda Road, Ondo +2349071603960</p>
+    </div>
+    <div>
+      <p class="address-text">Delivery Method</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item style="border: none;">
+              <ion-label>Delivery </ion-label>
+              <ion-radio slot="start" value="biff"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label>Pickup</ion-label>
+              <ion-radio slot="start" value="griff"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div>
+      <p class="address-text">Payment Method</p>
+      <ion-item style="border: none;">
+        <ion-label>Pay with Klasha </ion-label>
+        <ion-radio slot="start" value="pay"></ion-radio>
+      </ion-item>
+    </div>
+    <div style="margin-top: 5rem;">
+      <ion-button expand="full" id="openModal">
+        Continue to Payment
+      </ion-button>
+    </div>
+  </div>
+  <div>
+    <ion-modal trigger="openModal" [initialBreakpoint]="0.5" [breakpoints]="[0, 0.5, 1]">
+      <ng-template>
+        <ion-content>
+          <div class="ion-padding">
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col>
+                  <img src="../../assets//images/klasha.png" alt="">
+                </ion-col>
+                <ion-col>
+                  <p style="color: #000000;">adaadiche@gmail.com</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <p class="text-center">Pay</p>
+            <h3 class="text-center">₦ 3554.63</h3>
+          </div>
+          <div class="ion-padding">
+            <ion-button expand="full" color="dark">pay with &nbsp; <img src="../../assets/images/applepay.png" alt=""></ion-button>
+            <button
+            class="klasha-button"
+            angular-klasha
+            [klashaOptions]="options"
+            (paymentInit)="paymentCancel()"
+            (callBack)="paymentDone($event)"
+          >
+            Pay with Klasha
+          </button>
+          </div>
+          <div>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   </div>
 </ion-content>
+<ion-footer class="footer">
+  <ion-toolbar>
+    <ion-title style="text-align: center; color: #000000CC;">Klasha.com</ion-title>
+  </ion-toolbar>
+</ion-footer>

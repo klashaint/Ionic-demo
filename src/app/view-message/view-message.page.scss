@@ -38,3 +38,27 @@ h1 {
 p {
   line-height: 22px;
 }
+.address-text {
+  color: #212529;
+  font-weight: 600;
+}
+.change-text {
+  color: #EF2C5A;
+  text-align: right;
+  font-weight: 600;
+}
+.flex-content {
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.text-center {
+  text-align: center;
+}
+.klasha-button {
+  background-color: #EF2C5A;
+  width: 100%;
+  margin-top: 1rem;
+  color: white;
+  height: 40px;
+}
